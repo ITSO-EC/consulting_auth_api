@@ -10,8 +10,8 @@ const { roles } = require('../config/roles');
 const userSchema = mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
-    phone_number: { type: String, required: true, trim: true },
-    image_url: { type: String, required: true, trim: true },
+    phone_number: { type: String, required: false, trim: true },
+    image_url: { type: String, required: false, trim: true },
     role: { type: String, enum: roles, default: 'user'},
     isEmailVerified: {type: Boolean,default: false},
 

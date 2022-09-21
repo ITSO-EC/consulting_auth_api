@@ -6,6 +6,8 @@ const createUser = {
     email: Joi.string().required().email(),
     password: Joi.string().required().custom(password),
     name: Joi.string().required(),
+    phone_number: Joi.string().allow(""),
+    image_url: Joi.string().allow(""),
     role: Joi.string().required().valid('user', 'admin'),
   }),
 };
