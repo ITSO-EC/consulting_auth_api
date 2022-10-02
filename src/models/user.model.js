@@ -12,8 +12,13 @@ const userSchema = mongoose.Schema(
     name: { type: String, required: true, trim: true },
     phone_number: { type: String, required: false, trim: true },
     image_url: { type: String, required: false, trim: true },
-    role: { type: String, enum: roles, default: 'user'},
-    isEmailVerified: {type: Boolean,default: false},
+    role: { type: String, enum: roles, default: 'user' },
+    isEmailVerified: { type: Boolean, default: false },
+    identification: { type: String, required: false, trim: true },
+    
+    notificationApp: { type: Boolean, default: true },
+    notificationEmail: { type: Boolean, default: true },
+    notificationWhatsapp: { type: Boolean, default: true },
 
     email: {
       type: String,
@@ -46,7 +51,7 @@ const userSchema = mongoose.Schema(
 );
 
 // add plugin that converts mongoose to json
-// userSchema.plugin(toJSON);
+userSchema.plugin(toJSON);
 userSchema.plugin(paginate);
 
 /**

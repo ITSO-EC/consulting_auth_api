@@ -6,9 +6,13 @@ const createUser = {
     email: Joi.string().required().email(),
     password: Joi.string().required().custom(password),
     name: Joi.string().required(),
-    phone_number: Joi.string().allow(""),
-    image_url: Joi.string().allow(""),
-    role: Joi.string().required().valid('user', 'admin'),
+    phone_number: Joi.string(),
+    image_url: Joi.string(),
+    identification: Joi.string(),
+    notificationApp: Joi.boolean().default(true),
+    notificationEmail: Joi.boolean().default(true),
+    notificationWhatsapp: Joi.boolean().default(true),
+    role: Joi.string().required().valid('user', 'member', 'reviewer_1', 'reviewer_1', 'operator', 'admin'),
   }),
 };
 
@@ -37,6 +41,13 @@ const updateUser = {
       email: Joi.string().email(),
       password: Joi.string().custom(password),
       name: Joi.string(),
+      phone_number: Joi.string(),
+      image_url: Joi.string(),
+      identification: Joi.string(),
+      notificationApp: Joi.boolean().default(true),
+      notificationEmail: Joi.boolean().default(true),
+      notificationWhatsapp: Joi.boolean().default(true),
+      role: Joi.string().valid('user', 'member', 'reviewer_1', 'reviewer_1', 'operator', 'admin'),
     })
     .min(1),
 };
